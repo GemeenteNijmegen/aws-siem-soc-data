@@ -13,7 +13,4 @@ export class Statics {
     account: '320517247925',
     region: 'eu-central-1',
   };
-
-  // Statics
-  static readonly ssmSiemSocketBucketArn = '/aws-siem-soc-data/s3/siem-soc-bucket';
 }
