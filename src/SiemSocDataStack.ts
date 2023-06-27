@@ -29,7 +29,7 @@ export class SiemSocDataStack extends Stack {
     const policy = new iam.Policy(this, 'chronical-siem-soc-user-policy',
       {
         statements: [new iam.PolicyStatement({
-          sid: 'Access policy to give chronical user read and write rights on siem-soc s3 bucket',
+          sid: 'Access policy to give chronical user read and write rights on siem soc s3 bucket',
           effect: iam.Effect.ALLOW,
           actions: ['s3:*'],
           resources: [bucket.bucketArn, bucket.bucketArn + '/*'],
