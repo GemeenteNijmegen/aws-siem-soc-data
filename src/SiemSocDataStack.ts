@@ -27,10 +27,9 @@ export class SiemSocDataStack extends Stack {
         's3:PutObject',
         's3:PutObjectAcl',
       ],
-      principals: [new iam.AnyPrincipal()],
+      principals: [new iam.ArnPrincipal('arn:aws:iam::132308400445:role/mcs-psc-prod-event-forwarder-eu-central-1-event-forwarder')], // Specific CBC role
       resources: [
-        `${bucket.bucketArn}`,
-        `${bucket.bucketArn}/*`,
+        `${bucket.bucketArn}/cbc-events/*`,
       ],
     }),
     );
