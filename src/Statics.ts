@@ -13,4 +13,6 @@ export class Statics {
     account: '320517247925',
     region: 'eu-central-1',
   };
+
+  static readonly cbcRoleArn = 'arn:aws:iam::132308400445:role/mcs-psc-prod-event-forwarder-eu-central-1-event-forwarder';
 }

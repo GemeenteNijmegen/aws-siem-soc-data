@@ -6,6 +6,7 @@ import {
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Configurable } from './Configuration';
+import { Statics } from './Statics';
 
 export interface SiemSocDataStackProps extends StackProps, Configurable { }
 
@@ -27,7 +28,7 @@ export class SiemSocDataStack extends Stack {
         's3:PutObject',
         's3:PutObjectAcl',
       ],
-      principals: [new iam.ArnPrincipal('arn:aws:iam::132308400445:role/mcs-psc-prod-event-forwarder-eu-central-1-event-forwarder')], // Specific CBC role
+      principals: [new iam.ArnPrincipal(Statics.cbcRoleArn)],
       resources: [
         `${bucket.bucketArn}/cbc-events/*`,
       ],
