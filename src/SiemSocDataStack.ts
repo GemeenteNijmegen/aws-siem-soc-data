@@ -21,6 +21,20 @@ export class SiemSocDataStack extends Stack {
   setupBucket() {
     const bucket = new s3.Bucket(this, 'bucket', {});
 
+    bucket.addToResourcePolicy(new iam.PolicyStatement({
+      effect: iam.Effect.ALLOW,
+      actions: [
+        's3:PutObject',
+        's3:PutObjectAcl',
+      ],
+      principals: [new iam.AnyPrincipal()],
+      resources: [
+        `${bucket.bucketArn}`,
+        `${bucket.bucketArn}/*`,
+      ],
+    }),
+    );
+
     return bucket;
   }
 
